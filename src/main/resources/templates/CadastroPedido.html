@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+<meta charset="UTF-8" />
+<title>Cadastro de Cliente</title>
+<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" href="/css/style.css" />
+</head>
+<body>
+
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+		<a class="navbar-brand" href="#">UFPR</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse"
+			data-target="#navbarNav" aria-controls="navbarNav"
+			aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarNav">
+			<ul class="navbar-nav">
+				<li class="nav-item"><a class="nav-link"
+					href="http://localhost:8080/clientes">Cadastro de Cliente <span
+						class="sr-only">(current)</span>
+				</a></li>
+				<li class="nav-item"><a class="nav-link"
+					href="http://localhost:8080/produtos">Cadastro de Produto</a></li>
+				<li class="nav-item active"><a class="nav-link" href="#">Cadastro
+						de Pedido</a></li>
+				<li class="nav-item"><a class="nav-link" href="#">Lista de
+						Pedidos</a></li>
+			</ul>
+		</div>
+	</nav>
+	<br />
+
+	<div class="card">
+	<div class="card-header">
+				<h4 class="panel-title">Lista de Clientes</h4>
+			</div>
+		<table class="table table-bordered table-striped">
+			<thead>
+				<tr>
+					<th class="text-center col-md-1">#</th>
+					<th class="text-center col-md-1">Cpf</th>
+					<th class="text-center col-md-2">Nome</th>
+					<th class="text-center col-md-2">Sobrenome</th>
+
+					<th class="col-md-1"></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="cliente : ${clientes}">
+					<td class="text-center" th:text="${cliente.id}">1</td>
+					<td th:text="${cliente.cpf}"></td>
+					<td class="text-center" th:text="${cliente.nome}"></td>
+					<td class="text-center" th:text="${cliente.sobrenome}"></td>
+
+					<td class="text-center"><a class="btn btn-primary btn-sm js-atualizar-cliente-pedido"
+						> <span>Adicionar</span>
+					</a> </td>
+				</tr>
+				<tr>
+					<td colspan="6" th:if="${#lists.isEmpty(clientes)}">Nenhum
+						cliente foi encontrado</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+<br/>
+<br/>
+	<div class="card">
+	<div class="card-header">
+				<h4 class="panel-title">Lista de Produtos</h4>
+			</div>
+		<table class="table table-bordered table-striped">
+			<thead>
+				<tr>
+					<th class="text-center col-md-1">#</th>
+					<th class="text-center col-md-6">Descrição</th>
+					<th class="col-md-1"></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="produto : ${produtos}">
+					<td class="text-center" th:text="${produto.id}">1</td>
+					<td th:text="${produto.descricao}"></td>
+
+
+					<td class="text-center"><a class="btn btn-info btn-sm js-atualizar-produto-pedido"
+						> <span>Adicionar</span>
+					</a> </td>
+				</tr>
+				<tr>
+					<td colspan="6" th:if="${#lists.isEmpty(produtos)}">Nenhum
+						produto foi encontrado</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+	<script src="/js/jquery-3.3.1.min.js"></script>
+	<script src="/js/bootstrap.min.js"></script>
+	<script src="/js/trabalhoWeb.js"></script>
+</body>
+</html>
