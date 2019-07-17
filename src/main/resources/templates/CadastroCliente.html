@@ -5,8 +5,16 @@
 <head>
 <meta charset="UTF-8" />
 <title>Cadastro de Cliente</title>
+
 <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css"
+	href="/css/dataTables.bootstrap4.min.css" />
+<link rel="stylesheet" type="text/css"
+	href="/css/bootstrap-superhero.min.css" />
+<link rel="stylesheet" type="text/css"
+	href="/css/all.min.css" />
 <link rel="stylesheet" type="text/css" href="/css/style.css" />
+
 </head>
 <body>
 
@@ -20,14 +28,13 @@
 		<div class="collapse navbar-collapse" id="navbarNav">
 			<ul class="navbar-nav">
 				<li class="nav-item active"><a class="nav-link"
-					href="http://localhost:8080/clientes">Cadastro de Cliente
-						<span class="sr-only">(current)</span>
+					href="http://localhost:8080/clientes">Cadastro de Cliente <span
+						class="sr-only">(current)</span>
 				</a></li>
 				<li class="nav-item"><a class="nav-link"
-					href="http://localhost:8080/produtos">Cadastro de Produto</a>
-				</li>
-				<li class="nav-item"><a class="nav-link" href="http://localhost:8080/pedidos">Cadastro
-						de Pedido</a></li>
+					href="http://localhost:8080/produtos">Cadastro de Produto</a></li>
+				<li class="nav-item"><a class="nav-link"
+					href="http://localhost:8080/pedidos">Cadastro de Pedido</a></li>
 				<li class="nav-item"><a class="nav-link" href="#">Lista de
 						Pedidos</a></li>
 			</ul>
@@ -89,42 +96,42 @@
 
 				<div class="form-group">
 					<div class="col-sm-offset-2 col-sm-10">
-						<button type="submit" class="btn btn-primary">Salvar</button>
+						<button type="submit" class="btn btn-success">Salvar</button>
 					</div>
 				</div>
 			</div>
 		</div>
 	</form>
-	<div class="card">
-		<table class="table table-bordered table-striped">
+	<div class="tabela">
+		<table id="minhaTabela"
+			class="table table-striped table-bordered table-hover">
 			<thead>
 				<tr>
-					<th class="text-center col-md-1">#</th>
-					<th class="text-center col-md-1">Cpf</th>
-					<th class="text-center col-md-2">Nome</th>
-					<th class="text-center col-md-2">Sobrenome</th>
-
-					<th class="col-md-1"></th>
+					<th class="text-center">#</th>
+					<th class="text-center">Cpf</th>
+					<th class="text-center">Nome</th>
+					<th class="text-center">Sobrenome</th>
+					<th class="text-center">Ação</th>
 				</tr>
 			</thead>
 			<tbody>
 				<tr th:each="cliente : ${clientes}">
-					<td class="text-center" th:text="${cliente.id}">1</td>
-					<td th:text="${cliente.cpf}"></td>
+					<td class="text-center" th:text="${cliente.id}"></td>
+					<td class="text-right" th:text="${cliente.cpf}"></td>
 					<td class="text-center" th:text="${cliente.nome}"></td>
 					<td class="text-center" th:text="${cliente.sobrenome}"></td>
 
-					<td class="text-center"><a class="btn btn-warning"
-						th:href="@{/clientes/{id}(id=${cliente.id})}"> <span>Editar</span>
-					</a> <a class="btn btn-danger" data-toggle="modal"
-						data-target="#confirmacaoExclusaoModal"
-						th:attr="data-id=${cliente.id}, data-nome=${cliente.nome}"> <span>Excluir</span>
-					</a></td>
+					<td class="text-center"><a
+						th:href="@{/clientes/{id}(id=${cliente.id})}"><i
+							class="btn btn-secondary fas fa-user-edit" aria-hidden="true"></i> </a><a
+						data-toggle="modal" data-target="#confirmacaoExclusaoModal"
+						th:attr="data-id=${cliente.id}, data-nome=${cliente.nome}"><i
+							class="btn btn-danger fas fa-user-slash" aria-hidden="true"></i> </a></td>
 				</tr>
-				<tr>
-					<td colspan="6" th:if="${#lists.isEmpty(clientes)}">Nenhum
-						cliente foi encontrado</td>
-				</tr>
+				<!-- 				<tr> -->
+				<!-- 					<td th:if="${#lists.isEmpty(clientes)}">Nenhum cliente foi -->
+				<!-- 						encontrado</td> -->
+				<!-- 				</tr> -->
 			</tbody>
 		</table>
 	</div>
@@ -141,7 +148,7 @@
 					</div>
 
 					<div class="modal-body">
-						<span>Tem certeza que deseja apagar o título?</span>
+						<span>Tem certeza que deseja apagar o cliente?</span>
 					</div>
 
 					<div class="modal-footer">
@@ -155,6 +162,8 @@
 
 	<script src="/js/jquery-3.3.1.min.js"></script>
 	<script src="/js/bootstrap.min.js"></script>
+	<script src="/js/jquery.dataTables.min.js"></script>
+	<script src="/js/dataTables.bootstrap4.min.js"></script>
 	<script src="/js/trabalhoWeb.js"></script>
 </body>
 </html>

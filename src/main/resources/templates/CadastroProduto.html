@@ -82,20 +82,18 @@
 			</div>
 		</div>
 	</form>
-	<div class="card">
+	<div class="table-responsive">
 		<table class="table table-bordered table-striped">
 			<thead>
 				<tr>
-					<th class="text-center col-md-1">#</th>
-					<th class="text-center col-md-6">Descrição</th>
-					
-
-					<th class="col-md-1"></th>
+					<th class="text-center">#</th>
+					<th class="text-center">Descrição</th>
+					<th class="text-center">Ação</th>
 				</tr>
 			</thead>
 			<tbody>
 				<tr th:each="produto : ${produtos}">
-					<td class="text-center" th:text="${produto.id}">1</td>
+					<td class="text-center" th:text="${produto.id}"></td>
 					<td th:text="${produto.descricao}"></td>
 					
 

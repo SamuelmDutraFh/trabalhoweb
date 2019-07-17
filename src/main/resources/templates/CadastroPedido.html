@@ -35,44 +35,24 @@
 	<br />
 
 	<div class="card">
-	<div class="card-header">
-				<h4 class="panel-title">Lista de Clientes</h4>
+		<div class="card-header">
+			<h4 class="panel-title">Cliente</h4>
+		</div>
+		<div class="card-body">
+			<div class="col-sm-2">
+				<select class="form-control">
+					<option th:each="cliente: ${clientes}" th:value="${cliente.id}"
+						th:text="|${cliente.nome} ${cliente.sobrenome}|"></option>
+				</select>
 			</div>
-		<table class="table table-bordered table-striped">
-			<thead>
-				<tr>
-					<th class="text-center col-md-1">#</th>
-					<th class="text-center col-md-1">Cpf</th>
-					<th class="text-center col-md-2">Nome</th>
-					<th class="text-center col-md-2">Sobrenome</th>
-
-					<th class="col-md-1"></th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr th:each="cliente : ${clientes}">
-					<td class="text-center" th:text="${cliente.id}">1</td>
-					<td th:text="${cliente.cpf}"></td>
-					<td class="text-center" th:text="${cliente.nome}"></td>
-					<td class="text-center" th:text="${cliente.sobrenome}"></td>
-
-					<td class="text-center"><a class="btn btn-primary btn-sm js-atualizar-cliente-pedido"
-						> <span>Adicionar</span>
-					</a> </td>
-				</tr>
-				<tr>
-					<td colspan="6" th:if="${#lists.isEmpty(clientes)}">Nenhum
-						cliente foi encontrado</td>
-				</tr>
-			</tbody>
-		</table>
+		</div>
 	</div>
-<br/>
-<br/>
+	<br />
+	<br />
 	<div class="card">
-	<div class="card-header">
-				<h4 class="panel-title">Lista de Produtos</h4>
-			</div>
+		<div class="card-header">
+			<h4 class="panel-title">Lista de Produtos</h4>
+		</div>
 		<table class="table table-bordered table-striped">
 			<thead>
 				<tr>
@@ -87,9 +67,9 @@
 					<td th:text="${produto.descricao}"></td>
 
 
-					<td class="text-center"><a class="btn btn-info btn-sm js-atualizar-produto-pedido"
-						> <span>Adicionar</span>
-					</a> </td>
+					<td class="text-center"><a
+						class="btn btn-info btn-sm js-atualizar-produto-pedido"> <span>Adicionar</span>
+					</a></td>
 				</tr>
 				<tr>
 					<td colspan="6" th:if="${#lists.isEmpty(produtos)}">Nenhum
