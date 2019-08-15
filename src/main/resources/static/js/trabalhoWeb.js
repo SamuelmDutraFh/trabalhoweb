@@ -1,105 +1,101 @@
 $(function() {
-	let table = $('#minhaTabela').DataTable({
-        "language": {
-        	"decimal":        ",",
-            "emptyTable":     "Sem registros",
-            "info":           "Mostrando _START_ a _END_ de _TOTAL_ resgistros",
-            "infoEmpty":      "Mostrando 0 a 0 de 0 resgistros",
-            "infoFiltered":   "(filtered from _MAX_ total entries)",
-            "infoPostFix":    "",
-            "thousands":      ".",
-            "lengthMenu":     "Mostrar _MENU_ registros",
-            "loadingRecords": "Carregando...",
-            "processing":     "Processando...",
-            "search":         "Busca:",
-            "zeroRecords":    "Nenhum registro encontrado",
-            "paginate": {
-                "first":      "Primeira",
-                "last":       "Última",
-                "next":       "Próxima",
-                "previous":   "Anterior"
-            },
-            "aria": {
-                "sortAscending":  ": activate to sort column ascending",
-                "sortDescending": ": activate to sort column descending"
-            }
-        }
-    });
-	let table2 = $('#tabelaClientesCadastroPedido').DataTable({
-		"bLengthChange": false,
-		"pageLength": 3,
-		"columnDefs": [
-            {
-                "targets": [ 0 ],
-                "visible": false,
-                "searchable": false
-            }
-        ],
-		"language": {
-			"decimal":        ",",
-			"emptyTable":     "Sem registros",
-			"info":           "Mostrando _START_ a _END_ de _TOTAL_ resgistros",
-			"infoEmpty":      "Mostrando 0 a 0 de 0 resgistros",
-			"infoFiltered":   "(filtered from _MAX_ total entries)",
-			"infoPostFix":    "",
-			"thousands":      ".",
-			"lengthMenu":     "Mostrar _MENU_ registros",
-			"loadingRecords": "Carregando...",
-			"processing":     "Processando...",
-			"search":         "Busca:",
-			"zeroRecords":    "Nenhum registro encontrado",
-			"paginate": {
-				"first":      "Primeira",
-				"last":       "Última",
-				"next":       "Próxima",
-				"previous":   "Anterior"
+	let table = $('#tabelaClientes').DataTable({
+		"language" : {
+			"decimal" : ",",
+			"emptyTable" : "Sem registros",
+			"info" : "Mostrando _START_ a _END_ de _TOTAL_ resgistros",
+			"infoEmpty" : "Mostrando 0 a 0 de 0 resgistros",
+			"infoFiltered" : "(filtered from _MAX_ total entries)",
+			"infoPostFix" : "",
+			"thousands" : ".",
+			"lengthMenu" : "Mostrar _MENU_ registros",
+			"loadingRecords" : "Carregando...",
+			"processing" : "Processando...",
+			"search" : "Busca:",
+			"zeroRecords" : "Nenhum registro encontrado",
+			"paginate" : {
+				"first" : "Primeira",
+				"last" : "Última",
+				"next" : "Próxima",
+				"previous" : "Anterior"
 			},
-			"aria": {
-				"sortAscending":  ": activate to sort column ascending",
-				"sortDescending": ": activate to sort column descending"
+			"aria" : {
+				"sortAscending" : ": activate to sort column ascending",
+				"sortDescending" : ": activate to sort column descending"
+			}
+		}
+	});
+	let table2 = $('#tabelaClientesCadastroPedido').DataTable({
+		"bLengthChange" : false,
+		"pageLength" : 3,
+		"columnDefs" : [ {
+			"targets" : [ 0 ],
+			"visible" : false,
+			"searchable" : false
+		} ],
+		"language" : {
+			"decimal" : ",",
+			"emptyTable" : "Sem registros",
+			"info" : "Mostrando _START_ a _END_ de _TOTAL_ resgistros",
+			"infoEmpty" : "Mostrando 0 a 0 de 0 resgistros",
+			"infoFiltered" : "(filtered from _MAX_ total entries)",
+			"infoPostFix" : "",
+			"thousands" : ".",
+			"lengthMenu" : "Mostrar _MENU_ registros",
+			"loadingRecords" : "Carregando...",
+			"processing" : "Processando...",
+			"search" : "Busca:",
+			"zeroRecords" : "Nenhum registro encontrado",
+			"paginate" : {
+				"first" : "Primeira",
+				"last" : "Última",
+				"next" : "Próxima",
+				"previous" : "Anterior"
+			},
+			"aria" : {
+				"sortAscending" : ": activate to sort column ascending",
+				"sortDescending" : ": activate to sort column descending"
 			}
 		}
 	});
 	let table3 = $('#tabelaProdutosCadastroPedido').DataTable({
-		"bLengthChange": false,
-		"pageLength": 3,
-		"columnDefs": [
-            {
-                "targets": [ 0 ],
-                "visible": false,
-                "searchable": false
-            }
-        ],
-		"language": {
-			"decimal":        ",",
-			"emptyTable":     "Sem registros",
-			"info":           "Mostrando _START_ a _END_ de _TOTAL_ resgistros",
-			"infoEmpty":      "Mostrando 0 a 0 de 0 resgistros",
-			"infoFiltered":   "(filtered from _MAX_ total entries)",
-			"infoPostFix":    "",
-			"thousands":      ".",
-			"lengthMenu":     "Mostrar _MENU_ registros",
-			"loadingRecords": "Carregando...",
-			"processing":     "Processando...",
-			"search":         "Busca:",
-			"zeroRecords":    "Nenhum registro encontrado",
-			"paginate": {
-				"first":      "Primeira",
-				"last":       "Última",
-				"next":       "Próxima",
-				"previous":   "Anterior"
+		"bLengthChange" : false,
+		"pageLength" : 3,
+		"columnDefs" : [ {
+			"targets" : [ 0 ],
+			"visible" : false,
+			"searchable" : false
+		} ],
+		"language" : {
+			"decimal" : ",",
+			"emptyTable" : "Sem registros",
+			"info" : "Mostrando _START_ a _END_ de _TOTAL_ resgistros",
+			"infoEmpty" : "Mostrando 0 a 0 de 0 resgistros",
+			"infoFiltered" : "(filtered from _MAX_ total entries)",
+			"infoPostFix" : "",
+			"thousands" : ".",
+			"lengthMenu" : "Mostrar _MENU_ registros",
+			"loadingRecords" : "Carregando...",
+			"processing" : "Processando...",
+			"search" : "Busca:",
+			"zeroRecords" : "Nenhum registro encontrado",
+			"paginate" : {
+				"first" : "Primeira",
+				"last" : "Última",
+				"next" : "Próxima",
+				"previous" : "Anterior"
 			},
-			"aria": {
-				"sortAscending":  ": activate to sort column ascending",
-				"sortDescending": ": activate to sort column descending"
+			"aria" : {
+				"sortAscending" : ": activate to sort column ascending",
+				"sortDescending" : ": activate to sort column descending"
 			}
 		}
 	});
-	
+
 	window.setTimeout(function() {
-	    $(".alert").fadeTo(500, 0).slideUp(500, function(){
-	        $(this).remove(); 
-	    });
+		$(".alert").fadeTo(500, 0).slideUp(500, function() {
+			$(this).remove();
+		});
 	}, 3000);
 })
 $('#confirmacaoExclusaoModal').on(
@@ -146,7 +142,7 @@ $('#confirmacaoExclusaoProdutoModal').on(
 
 $(function() {
 
-//	$('#minhaTabela').DataTable()
+	$('[rel="tooltip"]').tooltip();
 
 	$('.js-atualizar-produto-pedido').on('click', function(event) {
 		event.preventDefault()

@@ -9,8 +9,8 @@
 <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css" />
 <link rel="stylesheet" type="text/css"
 	href="/css/dataTables.bootstrap4.min.css" />
-<link rel="stylesheet" type="text/css"
-	href="/css/bootstrap-superhero.min.css" />
+<!-- <link rel="stylesheet" type="text/css" -->
+<!-- 	href="/css/bootstrap-superhero.min.css" /> -->
 <link rel="stylesheet" type="text/css" href="/css/all.min.css" />
 <link rel="stylesheet" type="text/css" href="/css/style.css" />
 
@@ -81,7 +81,7 @@
 		</div>
 	</form>
 	<div class="tabela">
-		<table id="minhaTabela"
+		<table id="tabelaClientes"
 			class="table table-striped table-bordered table-hover">
 			<thead>
 				<tr>
@@ -100,10 +100,10 @@
 					<td class="text-center" th:text="${cliente.sobrenome}"></td>
 
 					<td class="text-center"><a
-						th:href="@{/clientes/{id}(id=${cliente.id})}"><i
-							class="btn btn-secondary fas fa-user-edit" aria-hidden="true"></i></a><a
+						th:href="@{/clientes/{id}(id=${cliente.id})}" title="Editar" rel="tooltip" data-placement="top" data-animation="true"><i
+							class="btn btn-secondary fas fa-user-edit"  aria-hidden="true"></i></a><a
 						data-toggle="modal" data-target="#confirmacaoExclusaoModal"
-						th:attr="data-id=${cliente.id}, data-nome=${cliente.nome}"><i
+						th:attr="data-id=${cliente.id}, data-nome=${cliente.nome}" title="Excluir" rel="tooltip" data-placement="top"><i
 							class="btn btn-danger fas fa-user-slash" aria-hidden="true"></i>
 					</a></td>
 				</tr>
@@ -136,6 +136,7 @@
 	</div>
 
 	<div th:replace="fragmentos/fragmentos :: footer"></div>
+	<script src="/js/cadastroCliente.js"></script>
 
 </body>
 </html>
