@@ -1,5 +1,6 @@
 package ufpr.trabalhoweb.model;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -26,16 +27,16 @@ public class Pedido {
 
 	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	@Temporal(TemporalType.DATE)
-	private Date data;
+	private Date data = new Date();
 	
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne()
     @JoinColumn(name = "cliente_id")
 	private Cliente cliente;
 	@OneToMany(
 	        cascade = CascadeType.ALL,
 	        orphanRemoval = true
 	    )
-	private List<ItemDoPedido> listItens;
+	private List<ItemDoPedido> listItens = new ArrayList<>();
 
 	public Pedido() {
 	}

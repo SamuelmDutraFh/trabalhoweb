@@ -27,7 +27,7 @@ $(function() {
 	});
 	let table2 = $('#tabelaClientesCadastroPedido').DataTable({
 		"bLengthChange" : false,
-		"pageLength" : 3,
+		"pageLength" : 10,
 		"columnDefs" : [ {
 			"targets" : [ 0 ],
 			"visible" : false,
