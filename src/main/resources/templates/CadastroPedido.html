@@ -109,14 +109,14 @@
 								</tr>
 							</thead>
 							<tbody>
-								<tr th:each="itemDoPedido, itemStat : *{listItens}">
+								<tr th:each="itemDoPedido, itemStat : ${pedido.listItens}">
 
-									<td th:text="${itemDoPedido.produto}">
-										<input type="hidden"
-										th:field="*{listItens[__${itemStat.index}__].produto}"
-										th:value="${listItens[__${itemStat.index}__].produto.id}"
-										th:id="${listItens[__${itemStat.index}__].produto}" />
-									</td>
+
+									<td><input
+										type="hidden"
+										th:field="*{listItens[__${itemStat.index}__].produto.id}" th:value="${itemDoPedido.produto.id}"/>
+										<input type="text" readonly="readonly"
+										th:field="*{listItens[__${itemStat.index}__].produto.descricao}" th:value="${itemDoPedido.produto.descricao}"/></td>
 									<td><input
 										th:field="*{listItens[__${itemStat.index}__].quantidade}"
 										type="text" class="" /></td>

@@ -21,40 +21,56 @@
 	<br />
 	<div class="card col-sm" th:each="pedido : ${pedidos}">
 
-			<div class="card-header">
-				<div class="row">
-					<h4 class="panel-title">Pedido</h4>
-				</div>
+		<div class="card-header">
+			<div class="row">
+				<h4 class="panel-title" th:text="|Pedido: ${pedido.id}|">Pedido</h4>
 			</div>
-			<div class="card-body">
-				Cliente: <span th:text="${pedido.cliente}"></span>
-				<hr />
-				Produtos: <br />
-				<table id="tabelaProdutosCadastroPedido2"
-					class="table table-striped table-bordered table-hover">
-					<thead>
-						<tr>
-							<!-- 									<th class="text-center col-md-1">#</th> -->
-							<th class="text-center col-md-6">Descrição</th>
-							<th class="col-md-2">Qtd</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr th:each="itemDoPedido, itemStat : *{listItens}">
+		</div>
+		<div class="card-body">
+			Cliente: <span th:text="${pedido.cliente}"></span>
+			<hr />
+			Produtos: <br />
+			<table id="" class="table table-striped table-bordered table-hover">
+				<thead>
+					<tr>
+						<!-- 									<th class="text-center col-md-1">#</th> -->
+						<th class="text-center col-md-6">Descrição</th>
+						<th class="col-md-2">Qtd</th>
+					</tr>
+				</thead>
+				<tbody>
+					<!-- 						<tr th:each="itemDoPedido, itemStat : *{listItens}"> -->
+					<tr th:each="itemDoPedido, itemStat : ${pedido.listItens}">
 
-							<!-- 									<td class="text-center" th:text="${itemDoPedido.produto.id}"></td> -->
-							<td th:text="${itemDoPedido.getProduto().getDescricao()}"><input
-								type="hidden"
-								th:field="*{listItens[__${itemStat.index}__].produto.id}"
-								th:value="${listItens[__${itemStat.index}__].produto.id}"
-								th:id="${listItens[__${itemStat.index}__].produto.id}" /></td>
-							<td th:text="${itemDoPedido.quantidade}"><input type="hidden"
-								th:field="*{listItens[__${itemStat.index}__].quantidade}"
-								 class="" /></td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
+						<!-- 									<td class="text-center" th:text="${itemDoPedido.produto.id}"></td> -->
+						<!-- 							<td th:text="${itemDoPedido.getProduto().getDescricao()}"><input -->
+						<!-- 								type="hidden" -->
+						<!-- 								th:field="*{listItens[__${itemStat.index}__].produto.id}" -->
+						<!-- 								th:value="${listItens[__${itemStat.index}__].produto.id}" -->
+						<!-- 								th:id="${listItens[__${itemStat.index}__].produto.id}" /></td> -->
+						<!-- 							<td th:text="${itemDoPedido.quantidade}"><input type="hidden" -->
+						<!-- 								th:field="*{listItens[__${itemStat.index}__].quantidade}" -->
+						<!-- 								 class="" /></td> -->
+
+						<td th:text="${itemDoPedido.getProduto().getDescricao()}">
+<!-- 						<input -->
+<!-- 							type="hidden" -->
+<!-- 							th:field="*{listItens[__${itemStat.index}__].produto.id}" -->
+<!-- 							th:value="${itemDoPedido.produto.id}" />  -->
+<!-- 							<input type="text" -->
+<!-- 							readonly="readonly" -->
+<!-- 							th:field="*{listItens[__${itemStat.index}__].produto.descricao}" -->
+<!-- 							th:value="${itemDoPedido.produto.descricao}" /> -->
+							</td>
+						<td th:text="${itemDoPedido.quantidade}">
+<!-- 						<input -->
+<!-- 							th:field="*{listItens[__${itemStat.index}__].quantidade}" -->
+<!-- 							type="text" class="" /> -->
+							</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
 	</div>
 
 
